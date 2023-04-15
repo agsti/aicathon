@@ -30,9 +30,6 @@ const getTramite = async (url: string) => {
     url: url,
     content: content || "no content",
     content_length: content?.length || 0,
-    tokens: tokens,
-    content_tokens: tokens.length,
-    chunks: [],
   };
   return tramite;
 };
