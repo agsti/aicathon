@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "scrape": "tsx scripts/scrape.ts",
-    "embed": "tsx scripts/embed.ts"
+    "scrape": "tsx scripts/scrape_gov.ts",
+    "embed": "tsx scripts/embed_gov.ts"
   },
   "dependencies": {
     "@next/font": "^13.2.3",

@@ -1,6 +1,13 @@
 export enum OpenAIModel {
-  DAVINCI_TURBO = "gpt-3.5-turbo"
+  DAVINCI_TURBO = "gpt-3.5-turbo",
 }
+
+export type Tramite = {
+  title: string;
+  url: string;
+  content: string;
+  content_length: number;
+};
 
 export type PGEssay = {
   title: string;
