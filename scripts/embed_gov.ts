@@ -6,7 +6,7 @@ import { Configuration, OpenAIApi } from "openai";
 
 loadEnvConfig("");
 
-const generateEmbeddings = async (filename, tramite: Tramite) => {
+const generateEmbeddings = async (filename: string, tramite: Tramite) => {
   if (
     tramite.title == "no_title" ||
     tramite.content == "undefined Procedimiento"
@@ -25,7 +25,7 @@ const generateEmbeddings = async (filename, tramite: Tramite) => {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  const { title, url, content, content_length, tokens } = tramite;
+  const { title, url, content, content_length } = tramite;
 
   const embeddingResponse = await openai.createEmbedding({
     model: "text-embedding-ada-002",
@@ -48,7 +48,7 @@ const generateEmbeddings = async (filename, tramite: Tramite) => {
   if (error) {
     console.log("error", error);
   } else {
-    console.log("saved", i, j);
+    console.log("saved", filename);
   }
 
   await new Promise((resolve) => setTimeout(resolve, 200));
@@ -57,7 +57,7 @@ const generateEmbeddings = async (filename, tramite: Tramite) => {
 (async () => {
   const tramites_folder = "scripts/tramites";
   const files = fs.readdirSync(tramites_folder);
-  for (let index = 0; index < 1; index++) {
+  for (let index = 0; index < files.length; index++) {
     const f = `scripts/tramites/${files[index]}`;
     const tramite: Tramite = JSON.parse(fs.readFileSync(f, "utf8"));
     await generateEmbeddings(files[index], tramite);

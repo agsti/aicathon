@@ -34,6 +34,7 @@
     "gpt-3-encoder": "^1.1.4",
     "openai": "^3.1.0",
     "postcss": "^8.4.21",
+    "supabase": "^1.50.4",
     "tailwindcss": "^3.2.7",
     "tsx": "^3.12.3"
   }
